@@ -1,0 +1,17 @@
+const int sensorPin = A0; // LM35 output connected to A0
+float temperatureC;
+
+void setup() {
+  Serial.begin(9600); // Start Serial Monitor
+}
+
+void loop() {
+  int analogValue = analogRead(sensorPin);       // Read analog value (0-1023)
+  temperatureC = (analogValue * 5.0 * 100.0) / 1024.0; // Convert to Celsius
+
+  Serial.print("Temperature: ");
+  Serial.print(temperatureC);
+  Serial.println(" °C");
+
+  delay(1000); // Wait 1 second
+}
